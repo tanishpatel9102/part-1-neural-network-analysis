@@ -1,61 +1,62 @@
-# NLP Sequence Modeling Project
+# Neural Network Fundamentals and Training Behavior Analysis
 
 ## Project Overview
 
-This project focuses on building a Natural Language Processing (NLP) pipeline for customer support sentiment classification. The goal is to understand how text data is converted into numerical representations and how traditional NLP approaches compare with sequence-based deep learning models.
+This project focuses on building and analyzing a feed-forward neural network for a supervised learning problem using a structured dataset.
 
-The project includes text preprocessing, vectorization techniques, baseline machine learning models, sequence models such as LSTM, and conceptual understanding of attention and transformers.
+The main objective is not only to train a neural network model, but also to understand how neural networks learn through:
 
----
+- Forward propagation
+- Loss calculation
+- Backpropagation
+- Weight and bias updates
 
-## Dataset Information
-
-Dataset Used:
-- Customer Support Text Classification Dataset
-
-Target Column:
-- sentiment_label
-
-Classes:
-- Positive
-- Neutral
-- Negative
-
-Input Feature:
-- customer_message
-
-Additional Features:
-- channel
-- word_count
-- urgent_flag
+The project includes dataset preprocessing, neural network model development, training analysis, hyperparameter experimentation, and theoretical reflection on neural network behavior.
 
 ---
 
-## Objectives
+# Dataset Information
 
-The main objectives of this project are:
+Dataset Source:
+- Part 1 Dataset from the shared Google Drive folder
 
-- Understand NLP preprocessing techniques
-- Convert text into vectors
-- Build baseline NLP models
-- Explore sequence-based deep learning models
-- Understand attention and transformer architectures
+Problem Type:
+- Supervised Learning
+
+Dataset Includes:
+- Multiple input features
+- One target variable
 
 ---
 
 # Project Structure
 
 ```text
-part-3-nlp-sequence-modeling/
+part-1-neural-network-fundamentals/
 │
 ├── README.md
 ├── notebook.ipynb
 ├── requirements.txt
 │
 └── results/
-    ├── model_evaluation.csv
+    ├── accuracy_loss_curves.png
+    ├── confusion_matrix.png
+    ├── hyperparameter_results.csv
     └── sample_predictions.txt
 ```
+
+---
+
+# Objectives
+
+The objectives of this project are:
+
+- Understand neural network fundamentals
+- Build a feed-forward neural network
+- Analyze model learning behavior
+- Experiment with hyperparameters
+- Evaluate model performance
+- Understand overfitting and underfitting
 
 ---
 
@@ -63,80 +64,88 @@ part-3-nlp-sequence-modeling/
 
 ## Task 1: Dataset Understanding
 
-Performed exploratory analysis including:
+Performed exploratory data analysis including:
 
-- Number of records
-- Target classes
-- Sample text messages
-- Average text length
-- Class distribution
+- Number of rows and columns
+- Feature types
+- Target variable analysis
+- Missing value detection
+- Statistical summary
+- Target variable distribution
 
 ---
 
-## Task 2: Text Preprocessing
+## Task 2: Data Preprocessing
 
-Preprocessing steps included:
+Data preprocessing steps included:
 
-- Lowercasing
-- Removing special characters
-- Tokenization
-- Stopword removal
-- Sequence padding
+- Handling missing values
+- Encoding categorical variables
+- Feature scaling and normalization
+- Train-test splitting
 
 Libraries Used:
-- NLTK
-- Regex
+- Pandas
+- NumPy
+- Scikit-learn
 
 ---
 
-## Task 3: Text Vectorization
+## Task 3: Neural Network Model Building
 
-Implemented text vectorization using:
+Built a feed-forward neural network using TensorFlow/Keras.
 
-### TF-IDF Vectorization
-Traditional NLP approach converting text into weighted numerical vectors.
+Model Architecture Included:
 
-### Tokenizer-Based Sequences
-Sequence-based approach converting words into integer sequences for deep learning models.
+- Input Layer
+- Hidden Layer(s)
+- Activation Functions
+- Output Layer
+
+Additional Components:
+- Loss Function
+- Optimizer
+- Accuracy Metric
 
 ---
 
-## Task 4: Baseline Model
+## Task 4: Training and Evaluation
 
-Built a baseline model using:
+The neural network was trained and evaluated using:
 
-- TF-IDF Vectorization
-- Logistic Regression
-
-Evaluation Metrics:
-- Accuracy
-- Precision
-- Recall
-- F1-Score
+- Training Accuracy
+- Training Loss
+- Testing Accuracy
+- Testing Loss
 - Confusion Matrix
 
----
-
-## Task 5: Sequence Model
-
-Implemented a simple LSTM model consisting of:
-
-- Embedding Layer
-- LSTM Layer
-- Dense Output Layer
-
-The sequence model processes padded text sequences and learns contextual word relationships.
+Performance visualizations were generated to analyze model behavior during training.
 
 ---
 
-## Task 6: Attention and Transformer Reflection
+## Task 5: Hyperparameter Experimentation
 
-Discussed:
+Multiple experiments were conducted by changing:
 
-- RNN limitations
-- How LSTMs improve memory
-- Attention mechanism
-- Importance of transformers in modern NLP and Generative AI
+- Number of hidden layers
+- Number of neurons
+- Learning rate
+- Batch size
+- Number of epochs
+- Activation functions
+
+Results were compared using a performance comparison table.
+
+---
+
+## Task 6: Final Reflection
+
+The project includes conceptual explanations covering:
+
+- Role of weights and biases
+- Importance of activation functions
+- Effect of learning rate
+- Underfitting and overfitting analysis
 
 ---
 
@@ -145,38 +154,56 @@ Discussed:
 - Python
 - Pandas
 - NumPy
+- Matplotlib
 - Scikit-learn
 - TensorFlow / Keras
-- NLTK
-- Matplotlib
 
 ---
 
-# Model Results
-
-The baseline model achieved good classification performance using TF-IDF and Logistic Regression.
-
-The LSTM sequence model demonstrated improved contextual understanding by processing text sequentially.
-
-Detailed evaluation metrics are available in:
+# Neural Network Workflow
 
 ```text
-results/model_evaluation.csv
-```
-
-Sample predictions are available in:
-
-```text
-results/sample_predictions.txt
+Input Features
+      ↓
+Forward Pass
+      ↓
+Prediction
+      ↓
+Loss Calculation
+      ↓
+Backpropagation
+      ↓
+Weight Updates
+      ↓
+Improved Predictions
 ```
 
 ---
 
-# Conclusion
+# Results
 
-This project demonstrates the complete NLP workflow from preprocessing to sequence modeling. Traditional vectorization techniques such as TF-IDF provide strong baseline performance, while sequence models like LSTM improve contextual understanding of text.
+The neural network successfully learned patterns from the dataset and improved prediction accuracy over multiple epochs.
 
-Transformers and attention mechanisms further advance NLP capabilities and form the foundation of modern Generative AI systems.
+Generated outputs include:
+
+- Accuracy and loss curves
+- Confusion matrix
+- Hyperparameter comparison results
+- Sample predictions
+
+All outputs are stored in the `results/` directory.
+
+---
+
+# Key Learnings
+
+This project helped demonstrate:
+
+- How neural networks learn
+- Importance of activation functions
+- Impact of hyperparameters
+- Relationship between training and generalization
+- Difference between underfitting and overfitting
 
 ---
 
@@ -184,14 +211,21 @@ Transformers and attention mechanisms further advance NLP capabilities and form 
 
 Possible future enhancements include:
 
-- Using GRU or Bidirectional LSTM
-- Hyperparameter tuning
-- Transformer-based models (BERT/GPT)
-- Deployment using Flask or Streamlit
-- Real-time sentiment prediction system
+- Adding dropout regularization
+- Using deeper neural networks
+- Applying early stopping
+- Hyperparameter optimization
+- Trying advanced optimizers
+- Comparing with other ML models
+
+---
+
+# Conclusion
+
+This project provided a practical understanding of neural network fundamentals and training behavior. Through experimentation and evaluation, it demonstrated how neural networks improve predictions through iterative learning and parameter optimization.
 
 ---
 
 # Author
 
-NLP Sequence Modeling Project
+Neural Network Fundamentals and Training Behavior Analysis
